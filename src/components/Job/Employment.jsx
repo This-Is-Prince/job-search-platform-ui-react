@@ -19,6 +19,7 @@ const Employment = () => {
             <li
               key={id}
               className={`job-select ${isChecked ? "job-select__active" : ""}`}
+              onClick={() => handleOnChange(id)}
             >
               <input
                 type="checkbox"

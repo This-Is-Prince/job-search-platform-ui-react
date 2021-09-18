@@ -65,6 +65,32 @@ const employmentType = [
     isChecked: false,
   },
 ];
+const employmentTypes = [
+  {
+    id: 1,
+    name: "full time jobs",
+  },
+  {
+    id: 2,
+    name: "part time jobs",
+  },
+  {
+    id: 3,
+    name: "remote jobs",
+  },
+  {
+    id: 4,
+    name: "internship jobs",
+  },
+  {
+    id: 5,
+    name: "contract ",
+  },
+  {
+    id: 6,
+    name: "training jobs",
+  },
+];
 const seniorityLevel = [
   {
     id: 1,
@@ -155,6 +181,14 @@ const salaryRange = [
     isChecked: false,
   },
 ];
+const jobTypes = [
+  { id: 1, name: "ui ux designer" },
+  { id: 2, name: "product designer" },
+  { id: 3, name: "ui developer" },
+  { id: 4, name: "user experience designer" },
+  { id: 5, name: "ui ux" },
+  { id: 6, name: "ux designer" },
+];
 const jobs = [
   {
     id: 1,
@@ -238,8 +272,8 @@ const jobs = [
     id: 4,
     title: "Product Designer",
     location: "4517 Washington Ave. Syracuse",
-    seniorityLevel: "training jobs",
-    employmentType: "entry level",
+    seniorityLevel: "entry level",
+    employmentType: "training jobs",
     salary: 1000.0,
     experience: 1,
     posted: 26,
@@ -368,7 +402,7 @@ const jobs = [
     title: "UX Designer",
     location: "2972 Westheimer Rd. Santa Ana.",
     seniorityLevel: "senior level",
-    employmentType: "remote level",
+    employmentType: "remote jobs",
     salary: 4500.0,
     experience: 1,
     posted: 15,
@@ -389,4 +423,12 @@ const jobs = [
     Class: "squarespace",
   },
 ];
-export { headerLinks, employmentType, seniorityLevel, salaryRange, jobs };
+export {
+  headerLinks,
+  employmentType,
+  seniorityLevel,
+  salaryRange,
+  jobs,
+  jobTypes,
+  employmentTypes,
+};

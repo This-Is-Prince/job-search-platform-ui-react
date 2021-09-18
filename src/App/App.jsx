@@ -22,7 +22,12 @@ const App = () => {
           <Content />
         </>
       )}
-      {appState.isJobModalOpen && <ChooseJob classes="modalClose" />}
+
+      <ChooseJob
+        classes={`modalClose  ${
+          appState.isJobModalOpen ? "modalAnimateStart" : "modalAnimateEnd"
+        }`}
+      />
     </AppContext.Provider>
   );
 };

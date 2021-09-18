@@ -5,6 +5,12 @@ const Reducer = (state, action) => {
       isDay: !state.isDay,
     };
   }
+  if (action.type === "ADD_JOBS") {
+    return {
+      ...state,
+      jobs: action.payload,
+    };
+  }
   if (action.type === "SALARY_RANGE_CHECKED") {
     return {
       ...state,
@@ -49,6 +55,12 @@ const Reducer = (state, action) => {
     return {
       ...state,
       isJobModalOpen: !state.isJobModalOpen,
+    };
+  }
+  if (action.type === "ADD_SEARCH_QUERIES") {
+    return {
+      ...state,
+      searchQueries: action.payload,
     };
   }
   if (action.type === "CHANGE_LINKS") {

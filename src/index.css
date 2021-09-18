@@ -33,17 +33,34 @@
 *::before {
   box-sizing: border-box;
   transition: background-color 0.5s linear, color 0.3s linear;
+  scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
   width: 16px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--clr-blue-1);
+  background-color: var(--clr-blue);
   background-clip: content-box;
   border-radius: 0.5rem;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
+  border: 5px solid transparent;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 100%;
+  border: 2px solid var(--clr-white);
+  background: white
+    url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+    no-repeat center;
+  background-size: cover;
+}
+
 body {
   font-family: var(--ff-primary);
   background-color: var(--clr-bg-white);
@@ -92,6 +109,7 @@ img {
   text-transform: capitalize;
 }
 .isBlur {
+  transition: filter 0.1s linear;
   filter: blur(10px);
 }
 
@@ -103,6 +121,7 @@ HEADER CSS START
 .header {
   position: sticky;
   top: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -295,9 +314,6 @@ SEARCH BAR CSS START
   background-color: var(--clr-black-2);
   border-left-color: var(--clr-white);
 }
-.search-bar::placeholder {
-  text-transform: capitalize;
-}
 .night .search-bar::placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -415,10 +431,14 @@ CHOOSE JOB MODAL CSS START
   top: 0;
   left: 0;
   position: absolute;
+  z-index: 100;
   min-height: 100vh;
   width: 100vw;
   max-width: 668px;
   background-color: var(--clr-bg-white);
+  transition: transform 0.3s ease-in-out;
+  /* transform: translateX(-100%); */
+  transform: scale(0);
 }
 .night .choose-job-container {
   background-color: var(--clr-black-7);
@@ -426,7 +446,14 @@ CHOOSE JOB MODAL CSS START
 .modalStatic {
   display: none;
 }
-
+.modalAnimateStart {
+  /* transform: translateX(0%); */
+  transform: scale(1);
+}
+.modalAnimateEnd {
+  /* transform: translateX(-100%); */
+  transform: scale(0);
+}
 .choose-job__header {
   position: sticky;
   top: 0;
@@ -480,6 +507,8 @@ CHOOSE JOB MODAL CSS START
     display: block;
     position: static;
     max-width: 300px;
+    transform: none;
+    transition: none;
   }
   .isBlur {
     filter: none;
@@ -585,6 +614,7 @@ CHOOSE JOB MODAL CSS START
   align-items: center;
   column-gap: 1rem;
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
 .job-select:last-child {
   margin: 0;
@@ -793,7 +823,7 @@ JOBS CSS START
   font-weight: 600;
   left: var(--spacing-1);
   border: 0.15rem solid mediumblue;
-  transition: none;
+  transition: all 0.3s linear;
 }
 .job-btn:hover {
   background-color: transparent;
