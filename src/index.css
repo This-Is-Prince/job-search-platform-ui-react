@@ -34,6 +34,8 @@
   box-sizing: border-box;
   transition: background-color 0.5s linear, color 0.3s linear;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-blue) transparent;
 }
 ::-webkit-scrollbar {
   width: 16px;
@@ -44,11 +46,16 @@
   border-radius: 0.5rem;
   border: 5px solid transparent;
 }
-
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   height: 1rem;
@@ -695,7 +702,40 @@ JOBS CSS START
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
+.cant-find-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cant-find-modal {
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--clr-white);
+}
+.cant-find-modal p {
+  text-align: center;
+  line-height: 2rem;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  letter-spacing: var(--spacing-2);
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--clr-black-10);
+}
+.night .cant-find-modal {
+  background-color: var(--clr-black-2);
+}
+.night .cant-find-modal p {
+  color: var(--clr-white);
+}
+.cant-find-modal-img {
+  width: 100px;
+  margin-top: 1rem;
+}
 /* jobs */
 
 /* job */
@@ -706,6 +746,28 @@ JOBS CSS START
   border-radius: 0.25rem;
   cursor: pointer;
   transition: transform 0.3s linear, box-shadow 0.3s linear;
+  animation-name: animateJob;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+@keyframes animateJob {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media screen and (min-width: 992px) {
+  .job {
+    max-height: 303px;
+  }
+}
+@media screen and (min-width: 1046px) {
+  .job {
+    max-height: 280px;
+  }
 }
 .job:hover {
   transform: scale(0.95);

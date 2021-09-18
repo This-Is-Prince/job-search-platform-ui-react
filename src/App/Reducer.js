@@ -5,6 +5,12 @@ const Reducer = (state, action) => {
       isDay: !state.isDay,
     };
   }
+  if (action.type === "ADD_JOB_TYPES") {
+    return {
+      ...state,
+      jobTypes: action.payload,
+    };
+  }
   if (action.type === "ADD_JOBS") {
     return {
       ...state,

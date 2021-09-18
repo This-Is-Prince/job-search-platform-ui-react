@@ -7,24 +7,18 @@ import DataList from "./DataList";
 
 const SearchBar = () => {
   const { appState, dispatch } = useContext(AppContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const {
       amount: currSalary,
-      jobTypes: currJobTypes,
+      jobTypes: currJobType,
       location: currLocation,
       employmentType: currEmploymentType,
     } = appState.searchQueries;
-    // if (
-    //   currSalary === "" &&
-    //   currJobTypes === "" &&
-    //   currLocation === "" &&
-    //   currEmploymentType === ""
-    // ) {
-    //   return;
-    // }
+
     const searchSalary = Number(currSalary);
-    const jobTypesChar = currJobTypes.split(" ");
+    const jobTypesChar = currJobType.split(" ");
     const locationChar = currLocation.split(" ");
     const employmentTypeChar = currEmploymentType.split(" ");
 
@@ -41,7 +35,7 @@ const SearchBar = () => {
       let isLocation = false;
       let isSalary = false;
       let isEmploymentType = false;
-      if (currJobTypes !== "") {
+      if (currJobType !== "") {
         isJobTypes = jobTypesChar.some((obj) => {
           return title.includes(obj);
         });

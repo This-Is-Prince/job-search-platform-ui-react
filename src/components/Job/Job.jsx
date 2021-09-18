@@ -12,7 +12,7 @@ const Job = ({
 }) => {
   const employment = employmentType.replace("jobs", "");
   return (
-    <article className="job">
+    <article className="job job-animate">
       <header className="job-header">
         <span className={`job-icon icon ${Class}`}>
           <Icon />
