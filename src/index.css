@@ -4,9 +4,13 @@
   --spacing-1: 0.1rem;
   --spacing-2: 0.15rem;
 
+  --transition: all 0.3s linear;
+
   --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   --clr-text: #272343;
+
+  --light-white: rgba(255, 255, 255, 0.6);
 
   --clr-bg-white: #eaf4f4;
   --clr-white: #fff;
@@ -322,7 +326,7 @@ SEARCH BAR CSS START
   border-left-color: var(--clr-white);
 }
 .night .search-bar::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--light-white);
 }
 .find-btn-container {
   display: flex;
@@ -447,6 +451,7 @@ CHOOSE JOB MODAL CSS START
   /* transform: translateX(-100%); */
   transform: scale(0);
 }
+
 .night .choose-job-container {
   background-color: var(--clr-black-7);
 }
@@ -578,7 +583,7 @@ CHOOSE JOB MODAL CSS START
   color: var(--clr-white);
 }
 .night .job-alert-input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--light-white);
 }
 .job-alert-btn {
   padding: 0.5rem 0.5rem;
@@ -674,6 +679,10 @@ JOBS CSS START
   perspective: 800px;
   transform-style: preserve-3d;
 }
+.job-modal-open .jobs {
+  max-width: 310px;
+  grid-template-columns: 1fr;
+}
 @media screen and (min-width: 668px) {
   .jobs {
     max-height: calc(100vh - 270px);
@@ -739,6 +748,9 @@ JOBS CSS START
 /* jobs */
 
 /* job */
+.job-link {
+  display: block;
+}
 .job {
   padding: 1rem;
   background-color: var(--clr-white);
@@ -764,11 +776,7 @@ JOBS CSS START
     max-height: 303px;
   }
 }
-@media screen and (min-width: 1046px) {
-  .job {
-    max-height: 280px;
-  }
-}
+
 .job:hover {
   transform: scale(0.95);
   box-shadow: 8px 8px 0px var(--clr-black-10);
@@ -796,6 +804,11 @@ JOBS CSS START
 .job-icon {
   padding: 0.5rem;
   border-radius: 0.25rem;
+}
+.job-icon,
+.job-menu-btn,
+.job-btn {
+  transition: var(--transition);
 }
 :is(.job-icon, .job-menu-btn):hover {
   transform: scale(1.1);
@@ -885,7 +898,6 @@ JOBS CSS START
   font-weight: 600;
   left: var(--spacing-1);
   border: 0.15rem solid mediumblue;
-  transition: all 0.3s linear;
 }
 .job-btn:hover {
   background-color: transparent;
@@ -916,6 +928,205 @@ JOBS CSS START
 /* job-middle */
 
 /* job */
+
+/* job - modal */
+.job-modal {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-white);
+  background-clip: content-box;
+  animation-name: animateJob;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  transition: var(--transition);
+  overflow: overlay;
+}
+.job-modal::-webkit-scrollbar-thumb {
+  display: none;
+}
+.job-modal::-webkit-scrollbar-thumb:hover {
+  display: initial;
+}
+@keyframes animateJob {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.night .job-modal {
+  background-color: var(--clr-black-5);
+  color: var(--clr-white);
+}
+
+.job-modal__header article {
+  position: relative;
+}
+
+.job-modal__header,
+.job-modal__img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.job-modal__img {
+  max-height: 200px;
+}
+/* job - modal */
+.job-modal__icon-cont {
+  padding: 0.3rem;
+  position: absolute;
+  bottom: -2rem;
+  left: 2rem;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+.job-modal__icon-cont > span {
+  font-size: 2rem;
+}
+.job-modal__headings {
+  padding: 3rem 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-start;
+}
+.heading-icon-cont {
+  display: flex;
+  gap: 0.75rem;
+}
+.heading-icon {
+  border: 2px solid var(--clr-black-2);
+  color: var(--clr-black-2);
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+}
+.night .heading-icon {
+  border-color: var(--clr-white);
+  color: var(--clr-white);
+}
+
+.job-modal__info,
+.job-modal__requirement {
+  color: var(--clr-black-0);
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+.night .job-modal__info {
+  color: var(--light-white);
+}
+.job-modal__info-p,
+.job-modal__requirement p:last-child {
+  font-size: 1rem;
+}
+.job-modal__info-p:first-child span {
+  color: mediumblue;
+  font-weight: 600;
+}
+.night .job-modal__info-p:first-child span {
+  color: var(--clr-blue);
+}
+.job-modal__info {
+  padding: 0.5rem 1.5rem 1rem;
+}
+.job-modal__info-p:last-child span {
+  color: var(--clr-black-5);
+  font-weight: 600;
+}
+.night .job-modal__info-p:last-child span {
+  color: var(--clr-white);
+}
+.night .job-modal__requirement p:first-child {
+  color: var(--light-white);
+}
+.job-modal__requirement p:last-child {
+  color: var(--clr-black-5);
+  font-weight: 600;
+}
+.night .job-modal__requirement p:last-child {
+  color: var(--clr-white);
+}
+.job-modal__requirements {
+  margin: 0 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-black-0);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.night .job-modal__requirements {
+  border-color: var(--light-white);
+}
+.job-modal__requirement {
+  padding: 0.5rem;
+}
+@media screen and (min-width: 400px) {
+  .job-modal__requirements {
+    grid-template-columns: 1fr 1fr;
+  }
+  .job-modal__requirement:is(:nth-child(1), :nth-child(2)) {
+    border-bottom: 1px solid var(--clr-black-0);
+  }
+  .night .job-modal__requirement:is(:nth-child(1), :nth-child(2)) {
+    border-color: var(--light-white);
+  }
+}
+@media screen and (min-width: 600px) {
+  .job-modal__requirements {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .job-modal__requirement:is(:nth-child(1), :nth-child(2)) {
+    border-bottom: none;
+  }
+  .job-modal__requirement:is(:nth-child(2), :nth-child(3), :nth-child(4)) {
+    border-left: 1px solid var(--clr-black-0);
+  }
+  .night
+    .job-modal__requirement:is(:nth-child(2), :nth-child(3), :nth-child(4)) {
+    border-color: var(--light-white);
+  }
+}
+.job-modal__overview,
+.job-modal__description {
+  padding: 1.5rem;
+  color: var(--clr-black-2);
+}
+.job-modal__overview h3 {
+  color: initial;
+  margin: 1rem 0;
+}
+.night :is(.job-modal__overview, .job-modal__description) {
+  color: var(--light-white);
+}
+.night :is(.job-modal__overview, .job-modal__description) h3 {
+  color: var(--clr-white);
+}
+.job-modal__overview p {
+  text-align: justify;
+}
+.job-modal__description ul {
+  margin-top: 1rem;
+}
+
+.job-modal__item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.job-modal__item:last-child {
+  margin: 0;
+}
+.job-modal__item span:first-child {
+  font-size: 1.25rem;
+  color: mediumblue;
+}
+.night .job-modal__item span:first-child {
+  color: var(--clr-blue);
+}
+
 /* 
 ==========
 JOBS CSS START

@@ -10,7 +10,7 @@ const ChooseJob = ({ classes }) => {
   const { appState, dispatch } = useContext(AppContext);
   const closeJobModal = () => {
     dispatch({
-      type: "OPEN_JOB_MODAL",
+      type: "OPEN_JOB_SEARCH_MODAL",
     });
   };
   return (

@@ -57,11 +57,19 @@ const Reducer = (state, action) => {
       }),
     };
   }
+  if (action.type === "OPEN_JOB_SEARCH_MODAL") {
+    return {
+      ...state,
+      isJobSearchModalOpen: !state.isJobSearchModalOpen,
+    };
+  }
   if (action.type === "OPEN_JOB_MODAL") {
     return {
       ...state,
       isJobModalOpen: !state.isJobModalOpen,
     };
+  }
+  if (action.type === "OPEN_JOB_MODAL") {
   }
   if (action.type === "ADD_SEARCH_QUERIES") {
     return {

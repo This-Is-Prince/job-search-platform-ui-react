@@ -10,6 +10,7 @@ import {
 const State = {
   links: headerLinks,
   isDay: true,
+  isJobSearchModalOpen: false,
   isJobModalOpen: false,
   jobTypes,
   employmentType,

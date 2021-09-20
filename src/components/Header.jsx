@@ -9,7 +9,7 @@ const Header = ({ classList }) => {
   const { appState, dispatch } = useContext(AppContext);
   const openJobModal = () => {
     dispatch({
-      type: "OPEN_JOB_MODAL",
+      type: "OPEN_JOB_SEARCH_MODAL",
     });
   };
 
