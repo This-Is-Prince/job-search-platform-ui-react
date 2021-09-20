@@ -33,7 +33,7 @@ const JobModal = () => {
     description,
   } = appState.jobs[id - 1];
   return (
-    <section className={`job-modal`}>
+    <section className={`job-modal `}>
       <header className="job-modal__header">
         <article>
           <img

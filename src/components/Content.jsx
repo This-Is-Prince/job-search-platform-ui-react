@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import AppContext from "../App/AppContext";
+import Jobs from "./Job/Jobs";
 import JobsContainer from "./JobsContainer";
+import JobModal from "./Model/JobModal";
 import SearchBar from "./SearchBar";
 
 const Content = ({ classList }) => {
@@ -8,8 +10,20 @@ const Content = ({ classList }) => {
   return (
     <>
       <main className={`main ${classList}`}>
-        <SearchBar />
-        <JobsContainer />
+        {appState.isJobModalOpen ? (
+          <>
+            <SearchBar />
+            <JobsContainer />
+          </>
+        ) : (
+          <>
+            <SearchBar />
+            <JobsContainer />
+            {/* <SearchBar />
+            <Jobs/>
+            <JobModal/> */}
+          </>
+        )}
       </main>
     </>
   );
