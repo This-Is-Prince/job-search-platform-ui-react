@@ -7,7 +7,7 @@ import SalaryRange from "./Job/SalaryRange";
 import SeniorityLevel from "./Job/SeniorityLevel";
 
 const ChooseJob = ({ classes }) => {
-  const { appState, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const closeJobModal = () => {
     dispatch({
       type: "OPEN_JOB_SEARCH_MODAL",

@@ -949,14 +949,7 @@ JOBS CSS START
 .job-modal-open {
   display: none;
 }
-/* @media screen and (min-width: 1024px) {
-  .job-modal {
-    display: none;
-  }
-  .job-modal-open {
-    display: block;
-  }
-} */
+
 .job-modal::-webkit-scrollbar-thumb {
   display: none;
 }
